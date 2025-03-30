@@ -8,3 +8,4 @@ Medium guide, step by step:
 - [Flutter s.a.s. Design system.](https://medium.com/@orexjeka9/flutter-s-a-s-design-system-2a446c83b09b)
 - [Flutter s.a.s. State management. Redux.](https://medium.com/@orexjeka9/state-management-redux-05d61ba875da)
 - [Flutter s.a.s. Navigation. With Autoroute.](https://medium.com/@orexjeka9/navigation-with-autoroute-3d0b60395330)
+- [Flutter s.a.s. Localization. intl. Language picker page.](https://medium.com/@orexjeka9/flutter-s-a-s-design-system-2a446c83b09b)
