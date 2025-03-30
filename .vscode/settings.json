@@ -1,0 +1,9 @@
+{
+    "files.autoSave": "afterDelay",
+    "arb-editor.suppressedWarnings": [
+        "missing_metadata_for_key"
+    ],
+    "files.watcherExclude": {
+        "**/target": true
+    },
+}

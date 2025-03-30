@@ -1,0 +1,11 @@
+{
+    "@@locale": "es",
+    "appName": "RecordApp",
+    "langEng": "Inglés",
+    "langSpain": "Español",
+    "homeTab": "Inicio",
+    "aboutUsTab": "Sobre nosotros",
+    "proviceMicroAccess": "Proporcionar acceso al micrófono",
+    "sendRecords": "Enviar grabaciones",
+    "ok": "Ok"
+}
