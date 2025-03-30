@@ -86,10 +86,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i200.RecordsListViewModelMapper(gh<_i777.AudioRecorder>()));
     gh.factory<_i854.StartRecording>(
         () => _i854.StartRecording(gh<_i777.AudioRecorder>()));
-    gh.factory<_i319.AppLanguagePickerPageVmmapper>(
-        () => _i319.AppLanguagePickerPageVmmapper(gh<_i465.AppStore>()));
     gh.factory<_i931.PreRecordingDialogPageVmmapper>(
         () => _i931.PreRecordingDialogPageVmmapper(gh<_i465.AppStore>()));
+    gh.factory<_i319.AppLanguagePickerPageVmmapper>(
+        () => _i319.AppLanguagePickerPageVmmapper(gh<_i465.AppStore>()));
     gh.lazySingleton<_i3.AppTextProvider>(
         () => _i3.AppTextProvider(gh<_i465.AppStore>()));
     await gh.lazySingletonAsync<_i456.EnvVars>(

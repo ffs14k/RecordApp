@@ -5,7 +5,7 @@ part 'app_settings_state.freezed.dart';
 part 'app_settings_state.g.dart';
 
 @freezed
-class AppSettingsState with _$AppSettingsState {
+abstract class AppSettingsState with _$AppSettingsState {
   const factory AppSettingsState({
     @Default(LocaleId.en) LocaleId locale,
   }) = _AppSettingsState;
