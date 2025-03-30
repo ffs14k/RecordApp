@@ -37,22 +37,26 @@ class _HomePageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: context.colorScheme.primary,
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 20,
+    return Stack(
+      children: [
+        ColoredBox(
+          color: context.colorScheme.primary,
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              _languagePickerRow(context),
+              const Spacer(),
+              RecordControlWidget(model: model.recordControl),
+              RecordsListWidget(model: model.recordList),
+              SendQueryButton(model: model.sendQueryButton),
+              const Spacer(),
+            ],
           ),
-          _languagePickerRow(context),
-          const Spacer(),
-          RecordControlWidget(model: model.recordControl),
-          RecordsListWidget(model: model.recordList),
-          LoaderWidget(model.showLoader),
-          SendQueryButton(model: model.sendQueryButton),
-          const Spacer(),
-        ],
-      ),
+        ),
+        LoaderWidget(model.showLoader),
+      ],
     );
   }
 

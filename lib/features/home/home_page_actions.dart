@@ -1,9 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:record_app/DI/get_it/get_it.dart';
+import 'package:record_app/features/home/redux/home_page_selectors.dart';
+import 'package:record_app/network/service/user_query_service/user_query_service.dart';
 import 'package:record_app/redux/app/app_state.dart';
 import 'package:record_app/features/home/redux/home_page_pure_actions.dart';
 import 'package:record_app/repositories/records_pool/records_pool.dart';
-import 'package:record_app/network/user_query_service.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 
@@ -23,6 +24,9 @@ class SendQueryButtonTapped extends CallableThunkAction<AppState> {
 
   @override
   call(Store<AppState> store) async {
+    if (!isSendButtonEnabledSelector(store.state)) {
+      return;
+    }
     store.dispatch(
       HomeLoadingStatePureAction(true),
     );

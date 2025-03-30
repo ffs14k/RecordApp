@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:record_app/DI/get_it/get_it.dart';
-import 'package:record_app/entities/ui/locale_id.dart';
 import 'package:record_app/features/home/home_page_view_model_mapper.dart';
 import 'package:record_app/features/home/subwidgets/record_contol/record_control_widget_view_model.dart';
 import 'package:record_app/features/home/subwidgets/records_list/records_list_view_model.dart';

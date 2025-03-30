@@ -10,7 +10,7 @@ class SendQueryButtonViewModelMapper {
 
   SendQueryButtonViewModel map(AppStore store) {
     return SendQueryButtonViewModel(
-      isButtonEnabledSelector(store.state),
+      isSendButtonEnabledSelector(store.state),
       (context) {
         store.dispatch(
           SendQueryButtonTapped(context),

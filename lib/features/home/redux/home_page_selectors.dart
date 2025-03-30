@@ -2,12 +2,10 @@ import 'package:record_app/redux/app/app_state.dart';
 import 'package:record_app/features/home/redux/home_page_state.dart';
 import 'package:reselect/reselect.dart';
 
-typedef HomePageStateSelector = HomePageState Function(AppState);
+HomePageState _homePageState(AppState appState) => appState.homePageState;
 
-final HomePageStateSelector homePageState = (appState) => appState.homePageState;
-
-final isButtonEnabledSelector = createSelector1(
-  homePageState,
+final isSendButtonEnabledSelector = createSelector1(
+  _homePageState,
   (homeState) {
     return [
       !homeState.isRecording,

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:record_app/design_system/build_context_ds_extensions.dart';
 
 class LoaderWidget extends StatefulWidget {
@@ -16,14 +16,13 @@ class _LoaderWidgetState extends State<LoaderWidget> {
       return const SizedBox.shrink();
     }
     return AbsorbPointer(
-      child: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: context.colorScheme.shadow,
-        child: const Center(
-          child: SizedBox(
-            width: 50,
-            height: 50,
+      child: Expanded(
+        child: ColoredBox(
+          color: context.colorScheme.shadow,
+          child: Center(
+            child: CupertinoActivityIndicator(
+              color: context.colorScheme.onPrimary,
+            ),
           ),
         ),
       ),

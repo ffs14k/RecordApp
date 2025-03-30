@@ -38,7 +38,7 @@ class RecordApp extends StatelessWidget {
     return const Align(
       alignment: Alignment.center,
       child: Padding(
-        padding: EdgeInsets.only(left: 70),
+        padding: EdgeInsets.only(left: 80),
         child: CupertinoActivityIndicator(
           color: Colors.black,
           radius: 10,

@@ -1,14 +1,20 @@
 import 'package:dio/dio.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:injectable/injectable.dart';
+import 'package:record_app/network/service/user_query_service/user_query_service.dart';
 import 'package:record_app/repositories/records_pool/record_item.dart';
 import 'package:record_app/network/api/record_app_rest_api.dart';
+import 'package:record_app/utils/environment/env_injectable.dart';
 
-@injectable
-class UserQueryService {
+@prod
+@profile
+@dev
+@Injectable(as: UserQueryService)
+class UserQueryServiceImpl extends UserQueryService {
   final RecordAppRestApi api;
-  UserQueryService(this.api);
+  UserQueryServiceImpl(this.api);
 
+  @override
   Future<void> sendUserQuery(
     String name,
     String phone,

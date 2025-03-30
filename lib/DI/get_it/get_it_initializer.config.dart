@@ -32,7 +32,12 @@ import '../../features/home/subwidgets/send_query_btn/send_query_button_view_mod
     as _i870;
 import '../../l10n/app_text_provider.dart' as _i3;
 import '../../network/api/record_app_rest_api.dart' as _i425;
-import '../../network/user_query_service.dart' as _i346;
+import '../../network/service/user_query_service/user_query_service.dart'
+    as _i1009;
+import '../../network/service/user_query_service/user_query_service_impl.dart'
+    as _i1040;
+import '../../network/service/user_query_service/user_query_service_mock.dart'
+    as _i56;
 import '../../redux/app/app_store.dart' as _i465;
 import '../../repositories/audio_recorder/audio_recorder.dart' as _i777;
 import '../../repositories/config/app_config.dart' as _i113;
@@ -47,6 +52,11 @@ import '../app_store_inject.dart' as _i325;
 import '../dio/dio_base_option_builder.dart' as _i752;
 import '../dio/dio_inject.dart' as _i563;
 import '../retrofit_rest_api_inject.dart' as _i677;
+
+const String _mock = 'mock';
+const String _prod = 'prod';
+const String _profile = 'profile';
+const String _dev = 'dev';
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -102,17 +112,16 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i107.AppLanguagePickerMapperHelper>(
         () => _i107.AppLanguagePickerMapperHelper(gh<_i3.AppTextProvider>()));
+    gh.factory<_i752.DioOptionsBuilder>(
+        () => _i752.DioOptionsBuilderImpl(gh<_i456.EnvVars>()));
+    gh.factory<_i361.Dio>(() => dioInject.dio(gh<_i752.DioOptionsBuilder>()));
     gh.factory<_i790.LanguageTextWidgetVmmapper>(
         () => _i790.LanguageTextWidgetVmmapper(
               gh<_i465.AppStore>(),
               gh<_i107.AppLanguagePickerMapperHelper>(),
             ));
-    gh.factory<_i752.DioBaseOptionBuilder>(
-        () => _i752.DioBaseOptionBuilderImpl(gh<_i456.EnvVars>()));
     gh.factory<_i872.RecordsChanged>(
         () => _i872.RecordsChanged(gh<_i480.RecordsPool>()));
-    gh.factory<_i361.Dio>(
-        () => dioInject.dio(gh<_i752.DioBaseOptionBuilder>()));
     gh.factory<_i133.RecordControlWidgetViewModelMapper>(
         () => _i133.RecordControlWidgetViewModelMapper(gh<_i113.AppConfig>()));
     gh.factory<_i1040.HomePageVmmapper>(() => _i1040.HomePageVmmapper(
@@ -123,8 +132,18 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i425.RecordAppRestApi>(
         () => retrofitRestApiInject.build(gh<_i361.Dio>()));
-    gh.factory<_i346.UserQueryService>(
-        () => _i346.UserQueryService(gh<_i425.RecordAppRestApi>()));
+    gh.factory<_i1009.UserQueryService>(
+      () => _i56.UserQueryServiceMock(gh<_i425.RecordAppRestApi>()),
+      registerFor: {_mock},
+    );
+    gh.factory<_i1009.UserQueryService>(
+      () => _i1040.UserQueryServiceImpl(gh<_i425.RecordAppRestApi>()),
+      registerFor: {
+        _prod,
+        _profile,
+        _dev,
+      },
+    );
     return this;
   }
 }
