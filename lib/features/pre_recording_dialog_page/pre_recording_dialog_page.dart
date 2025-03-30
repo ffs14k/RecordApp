@@ -17,7 +17,7 @@ class PreRecordingDialogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector(
-      converter: (Store<AppState> store) => PreRecordingDialogPageViewModel.converter(store),
+      converter: (Store<AppState> store) => PreRecordingDialogPageViewModel.create(),
       builder: (context, model) {
         return _PreRecordingDialogPageContent(model);
       },

@@ -22,10 +22,11 @@ class HomePage extends StatelessWidget {
       converter: (AppStore store) => HomePageViewModel.create(),
       builder: (context, model) {
         return Scaffold(
-            drawer: const ApplicationDrawer(),
-            appBar: const ApplicationBar(),
-            resizeToAvoidBottomInset: true,
-            body: _HomePageContent(model));
+          drawer: const ApplicationDrawer(),
+          appBar: const ApplicationBar(),
+          resizeToAvoidBottomInset: true,
+          body: _HomePageContent(model),
+        );
       },
     );
   }

@@ -30,6 +30,8 @@ import '../../features/home/subwidgets/records_list/records_list_view_model_mapp
     as _i200;
 import '../../features/home/subwidgets/send_query_btn/send_query_button_view_model_mapper.dart'
     as _i870;
+import '../../features/pre_recording_dialog_page/pre_recording_dialog_page_vmmapper.dart'
+    as _i931;
 import '../../l10n/app_text_provider.dart' as _i3;
 import '../../network/api/record_app_rest_api.dart' as _i425;
 import '../../network/service/user_query_service/user_query_service.dart'
@@ -86,6 +88,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i854.StartRecording(gh<_i777.AudioRecorder>()));
     gh.factory<_i319.AppLanguagePickerPageVmmapper>(
         () => _i319.AppLanguagePickerPageVmmapper(gh<_i465.AppStore>()));
+    gh.factory<_i931.PreRecordingDialogPageVmmapper>(
+        () => _i931.PreRecordingDialogPageVmmapper(gh<_i465.AppStore>()));
     gh.lazySingleton<_i3.AppTextProvider>(
         () => _i3.AppTextProvider(gh<_i465.AppStore>()));
     await gh.lazySingletonAsync<_i456.EnvVars>(
