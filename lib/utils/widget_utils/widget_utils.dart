@@ -21,12 +21,14 @@ ScreenType _getScreenType(
 ) {
   switch (context.breakpoint) {
     case LayoutBreakpoint.xs:
-    case LayoutBreakpoint.sm:
-    case LayoutBreakpoint.md:
       return ScreenType.mobile;
+    case LayoutBreakpoint.sm:
+      return ScreenType.tablet;
+    case LayoutBreakpoint.md:
+      return ScreenType.desktop;
     case LayoutBreakpoint.lg:
-      return ScreenType.tablet;
+      return ScreenType.desktop;
     case LayoutBreakpoint.xl:
-      return ScreenType.tablet;
+      return ScreenType.desktop;
   }
 }
